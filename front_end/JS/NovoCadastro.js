@@ -10,7 +10,7 @@ const main = document.getElementById('main');
       signInButton.addEventListener('click',() => {
        main.classList.remove("right-panel-active");
       })
-      window.location.replace("../front_end/Quizzz.html")
+    
 
 
 // login de usuario
@@ -29,7 +29,7 @@ document.querySelector("#botaologin").addEventListener("click", async (event) =>
 
                 // Redireciona para a página home
                 alert('Login realizado com sucesso!!')
-                  window.location.replace('/front_end/Quizzz.html')
+                  window.location.replace('../HTML/Quizzz.html')
             } else {
                 alert('Usuário ou senha incorretos!', 'danger');
             }
