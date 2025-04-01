@@ -1,87 +1,57 @@
+document.addEventListener("DOMContentLoaded", loadQuestion);
 
-const Button = document.getElementById('Trocar');
-const body = document.body;
+const questao = document.querySelector(".questao"); // Elemento onde o enunciado será exibido
+const opcoes = document.querySelector(".opcoes"); // Elemento para as opções
+const proxima = document.querySelector("#proximo"); // Botão "Próximo"
 
-const quizData = [
-    {
-      question: "Qual é a capital da França?",
-      options: ["Paris", "Madri", "Roma", "Berlim"],
-      answer: "Paris"
-    },
-    {
-      question: "Qual é o maior planeta do nosso sistema solar?",
-      options: ["Jupiter", "Saturno", "Marte", "Terra"],
-      answer: "Jupiter"
-    },
-    {
-      question: "O Sol é o que?",
-      options:["Estrela", "Planeta", "Bola de lava", "Nenhuma das alternativas"],
-      answer: "Estrela"
+// Função para carregar uma pergunta aleatória
+async function loadQuestion() {
+    try {
+        // Faz a requisição para buscar uma pergunta aleatória
+        const resposta = await fetch("http://localhost:3000/Bperguntas", {
+            method: "GET", // GET se a API aceita GET
+        });
+
+        // Converte a resposta em JSON
+        const questaoAtual = await resposta.json();
+
+        const questoes = questaoAtual[0];
+
+        // Atualiza o enunciado da questão
+        questao.innerText = questoes.pergunta;
+
+        // Guarda a resposta correta
+        respostaCorreta = questoes.resposta; // Exemplo: "A"
+
+        // Gera os inputs de opções
+        opcoes.innerHTML = `
+            <label><input type="radio" name="resposta" value="A"> A) ${questoes.a}</label><br>
+            <label><input type="radio" name="resposta" value="B"> B) ${questoes.b}</label><br>
+            <label><input type="radio" name="resposta" value="C"> C) ${questoes.c}</label><br>
+            <label><input type="radio" name="resposta" value="D"> D) ${questoes.d}</label><br>
+        `;
+
+    } catch (error) {
+        console.error("Erro ao carregar a questão:", error);
+        questao.innerText = "Erro ao carregar a questão.";
     }
-    // Adicione mais perguntas aqui...
-  ];
-  
-  const questionElement = document.getElementById("question");
-  const optionsElement = document.getElementById("options");
-  const submitButton = document.getElementById("submit");
-  
-  let currentQuestion = 0;
-  let score = 0;
-  
-  function showQuestion() {
-    const question = quizData[currentQuestion];
-    questionElement.innerText = question.question;
-  
-    optionsElement.innerHTML = "";
-    question.options.forEach(option => {
-      const button = document.createElement("button");
-      button.innerText = option;
-      optionsElement.appendChild(button);
-      button.addEventListener("click", selectAnswer);
-    });
-  }
-  
-  function selectAnswer(e) {
-    const selectedButton = e.target;
-    const answer = quizData[currentQuestion].answer;
-  
-    if (selectedButton.innerText === answer) {
-      score++;
-    }
-  
-    currentQuestion++;
-  
-    if (currentQuestion < quizData.length) {
-      showQuestion();
-    } else {
-      showResult();
-    }
-  }
-  
-  function showResult() {
-    quiz.innerHTML = `
-      <h1>Quiz Completed!</h1>
-      <p>Sua Pontuação: ${Pontuação}/${quizData.length}</p>
-    `;
-  }
-  
-  showQuestion();
-
-
-  // Verifica se há preferência salva no localStorage, tema do Navegador
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-mode');
-    Button.classList.add('dark-mode');
 }
-
-Button.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');//função toogle == bool, um ou outro
-    Button.classList.toggle('dark-mode');
-
-    // Salva a preferência do usuário no localStorage, tema do Navegador
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
+    
+//verificar a resposta
+async function verificar() {
+    const Selecionada = document.querySelector('')
+    
+    if(!Selecionada){
+        alert("Selecione uma resposta para continuar")
+        return;
     }
-});
+    else if(Selecionada.value == resposta){
+        alert("✅ Resposta correta!");
+    }
+    else{
+        alert("❌ Resposta errada. A correta era: ");
+    }
+ }
+
+// Adiciona funcionalidade ao botão "Próximo"
+proxima.addEventListener("click", verificar);

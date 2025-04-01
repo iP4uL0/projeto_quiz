@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="p
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do adm</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>Painel Administrativo</h1>
+          <li class="sair"><a href="../HTML/NovoCadastro.html">Sair</a></li>
+        </ul>
+      </header>
+      
+      <main role="main">
+        <section class="painel importante">
+          <h2>Escrever uma postagem</h2>
+          <form method="post">
+            <div class="doistercos">
+              Pergunta:
+              <input type="text" name="pergunta" /><br/><br/>
+            
+              <div id="alter">
+                <p>Nível da Pergunta:</p>
+                <label>
+                    Fácil
+                    <input type="radio" name="nivel" value="facil">
+                </label>
+                <label>
+                    Médio
+                    <input type="radio" name="nivel" value="medio">
+                </label>
+                <label>
+                    Difícil
+                    <input type="radio" name="nivel" value="dificil">
+                </label>
+            </div>
+            
+              
+                Alternativas:    
+              <section id="conteudo" rows="15" cols="67"><br>
+                <input type="text" name="alternativas" id= opcaoa size="40"/><br>
+                <input type="text" name="alternativas" id=opcaob size="40"/><br>
+                <input type="text" name="alternativas" id="opcaoC" size="40"/><br>
+                <input type="text" name="alternativas" id="opcaoD"size="40"/><br>
+
+              </section>  
+            </div>
+            <div>
+              <input type="submit" name="enviar" value="Salvar" />
+            </div>
+          </form>
+        </section>
+      </main>
+      
+      <script src="../JS/admin.js"></script>
+</body>
+</html>
+
+
+
+
+
+
