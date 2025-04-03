@@ -1,3 +1,5 @@
+const { json } = require("express");
+
 // Código para a transição de telas
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
@@ -31,9 +33,12 @@ document.querySelector("#botaologin").addEventListener("click", async (event) =>
                 // Redireciona para a página home
                 alert('Login realizado com sucesso!!')
                   window.location.replace('../HTML/Quizzz.html')
-            } else {
+            } 
+            
+            else {
                 alert('Usuário ou senha incorretos!', 'danger');
             }
+          
         } catch (error) {
             console.error('Erro ao fazer login:', error);
             alert('Erro ao tentar fazer login. Tente novamente mais tarde.', 'danger');
