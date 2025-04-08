@@ -4,11 +4,11 @@ botao.addEventListener('click', async function(event){
     event.preventDefault(); // Impede o envio do formulário
   
   const pergunta = document.querySelector('#pergunta').value;
-  const a = document.querySelector('#opcaoa').value;
-  const b = document.querySelector('#opcaob').value;
-  const c = document.querySelector('#opcaoC').value;
-  const d = document.querySelector('#opcaoD').value;
-  const dificuldade = document.querySelector('#dificuldade').value;
+  const a = document.querySelector('#a').value;
+  const b = document.querySelector('#b').value;
+  const c = document.querySelector('#c').value;
+  const d = document.querySelector('#d').value;
+  const dificuldade = document.querySelector('input[name="dificuldade"]:checked').value;
   const correct_answer = document.querySelector('#correta').value;
   
 
@@ -34,6 +34,6 @@ botao.addEventListener('click', async function(event){
   }
   else if(res.status == 500){
     alert('Ops...houve um erro ao adicionar')
-  }
+  } 
   
   })

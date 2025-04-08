@@ -14,7 +14,7 @@ html {
 body {
   background: #f1f2f7;
   font-family: "Open Sans", arial, sans-serif;
-  color: darkslategray;
+  color: #000000;
 }
 
 body.login {
@@ -31,7 +31,7 @@ body.login {
 
 /* header */
 header[role="banner"] {
-  background: white;
+  background: #0E6BA8;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
 header[role="banner"] h1 {
@@ -43,7 +43,7 @@ header[role="banner"] h1:before {
   content: "\f248";
   font-family: FontAwesome;
   padding-right: 0.6em;
-  color: red;
+  color: #fff;
 }
 header[role="banner"] .utilities {
   width: 100%;
@@ -106,7 +106,7 @@ footer[role="contentinfo"] {
 /* typography */
 a {
   text-decoration: none;
-  color: inherit;
+  color: #fff;
 }
 
 h2,
@@ -196,23 +196,7 @@ form input[type="submit"] {
   -ms-border-radius: 0.5em;
   border-radius: 0.5em;
 }
-form input[type="submit"]:hover {
-  background: turquoise;
-  border: none;
-  border-bottom: solid 4px #21ccbb;
-  padding: 0.7em 3em;
-  margin: 1em 0;
-  color: white;
-  text-shadow: 0 -1px 0 #21ccbb;
-  font-size: 1.1em;
-  font-weight: bold;
-  display: inline-block;
-  width: auto;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  border-radius: 0.5em;
-}
+
 
 /* feedback */
 .error {
@@ -270,7 +254,7 @@ td {
     top: 0;
     right: 0;
     background: transparent;
-    color: darkslategray;
+    color: #fff;
     width: auto;
   }
   header[role="banner"] .utilities li {
@@ -350,6 +334,12 @@ td {
 
 #alter{
   max-width: 20px;
+  display: flex;
+  gap: 10px;
+
   
 }
 
+#painel{
+  color: #fff;
+}

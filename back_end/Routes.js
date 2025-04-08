@@ -84,8 +84,8 @@ routes.post('/Admin', async (req, res)=>{
 //cadastro perguntas
 routes.post('/Cperguntas', async (req, res)=>{
     try{
-        const {pergunta, a, b, c, d, resposta, dificuldade, correct_answer } = req.body;
-    await sql`insert into perguntas (pergunta, a, b, c, d, resposta, dificuldade, correct_answer) values (${pergunta}, ${a}, ${b}, ${c}, ${d}, ${resposta}, ${dificuldade}, ${correct_answer});`
+        const {pergunta, a, b, c, d, dificuldade, correct_answer } = req.body;
+    await sql`insert into perguntas (pergunta, a, b, c, d, dificuldade, correct_answer) values (${pergunta}, ${a}, ${b}, ${c}, ${d},  ${dificuldade}, ${correct_answer});`
     return res.status(200).json('ok')
     }
     catch(error){
