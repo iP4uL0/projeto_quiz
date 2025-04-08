@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="p
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,47 +17,54 @@
     </ul>
   </header>
   
-      <main role="main">
-        <section class="painel importante">
-          <h2>Escrever uma postagem</h2>
-          <form method="post">
-            <div class="doistercos">
-              Pergunta:
-              <input type="text" name="pergunta" /><br/><br/>
-            
-              
-                <p>Nível da Pergunta:</p>
-                <div id="alter">
-                <label>
-                    Fácil
-                    <input type="radio" name="nivel" value="facil">
-                </label>
-                <label>
-                    Médio
-                    <input type="radio" name="nivel" value="medio">
-                </label>
-                <label>
-                    Difícil
-                    <input type="radio" name="nivel" value="dificil">
-                </label>
-            </div>
-            
-              
-                Alternativas:    
-              <section id="conteudo" rows="15" cols="67"><br>
-                <input type="text" name="alternativas" id= opcaoa size="40"/><br>
-                <input type="text" name="alternativas" id=opcaob size="40"/><br>
-                <input type="text" name="alternativas" id="opcaoC" size="40"/><br>
-                <input type="text" name="alternativas" id="opcaoD"size="40"/><br>
+  <main role="main">
+    <section class="painel importante">
+      <h2>Escrever uma postagem</h2><br>
+      <form method="post">
+        <div class="doistercos">
+          Pergunta:
+          <input type="text" name="pergunta" id="pergunta" /><br/> <!--  ADICIONEI id="pergunta" -->
 
-              </section>  
-            </div>
-            <div>
-              <input type="submit" name="enviar" value="Salvar" />
-            </div>
-          </form>
-        </section>
-      </main>
+          <p>Nível da Pergunta:</p>
+          <div id="alter">
+            <label>
+              Fácil
+              <input type="radio" name="dificuldade" value="facil" id="dificuldade"> <!--  ALTEREI name de "nivel" para "dificuldade" e adicionei id -->
+            </label>
+            <label>
+              Médio
+              <input type="radio" name="dificuldade" value="medio">
+            </label>
+            <label>
+              Difícil
+              <input type="radio" name="dificuldade" value="dificil">
+            </label>
+          </div>
+          
+          Alternativas:    
+          <section id="conteudo"><br>
+            <input type="text" name="alternativas" id="a" size="40"/><br> <!--  ALTEREI id de opcaoa → a -->
+            <input type="text" name="alternativas" id="b" size="40"/><br> <!--  ALTEREI id de opcaob → b -->
+            <input type="text" name="alternativas" id="c" size="40"/><br> <!--  ALTEREI id de opcaoC → c -->
+            <input type="text" name="alternativas" id="d" size="40"/><br> <!--  ALTEREI id de opcaoD → d -->
+          </section>
+
+          
+          <label for="correta">Alternativa correta:</label><br> <!--  ADICIONEI CAMPO NOVO -->
+          <input type="text" id="correta" name="correta" maxlength="1"/><br>
+
+        </div>
+
+        <div>
+          <input type="submit" id="cadastrar" value="Salvar" /> <!--  ALTEREI  id="cadastrar" -->
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../JS/admin.js"></script>
+</body>
+</html>
       
       <script src="../JS/admin.js"></script>
 </body>
