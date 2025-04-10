@@ -1,0 +1,68 @@
+/* Estilos Globais ================================================== */
+/* Tema Claro */
+body {
+    background-color: #468ad8;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Tema Escuro */
+  body.dark-mode {
+    background-color: #222222;
+    color: #f5f5f5;
+  }
+  
+  /* Estilos Globais para Botões */
+  body.dark-mode button {
+    background-color: #444;
+    color: #ffffff;
+  }
+  
+  /* Hover Global */
+  body.dark-mode button:hover {
+    background-color: #3700B3;
+  }
+  
+  /* Página 1 ========================================================= */
+  header[role="banner"] {
+    background-color: #0E6BA8;
+    color: #ffffff;
+  }
+  
+  body.dark-mode header[role="banner"] {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  
+  /* Página 2 ========================================================= */
+  #quiz {
+    background-color: #CF5C36;
+    color: #ffffff;
+  }
+  
+  body.dark-mode #quiz{
+    background-color: #1F1B24;
+    color: #ffffff;
+  }
+  
+  /* Página 3 ========================================================= */
+  .container {
+    background: #a1a1a1;
+    color: #222;
+  }
+  
+  body.dark-mode .container {
+    background: #333;
+    color: #581c1c;
+  }
+  
+  body.dark-mode .overlay {
+    background: linear-gradient(to right, #020202, #070707);
+  }
+  
+  /* Página 3 - Ajustes para sign-in e sign-up no modo escuro */
+  body.dark-mode .sign-in form,
+  body.dark-mode .sign-up form {
+    background: #333; /* Fundo escuro */
+    color: #f5f5f5; /* Texto claro */
+  }

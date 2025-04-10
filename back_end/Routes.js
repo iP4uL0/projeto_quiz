@@ -20,7 +20,8 @@ routes.post('/login',async (req, res)=>{
         const teste = await compararHash(senha, consulta[0].senha)
 
         if(teste){
-            return res.status(200).json('logado')
+            console.log(consulta)
+            return res.status(200).json(consulta[0])
         }
         else{
             return res.status().json('usuario ou senha incorretos')

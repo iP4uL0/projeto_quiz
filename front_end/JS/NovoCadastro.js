@@ -1,5 +1,3 @@
-const { json } = require("express");
-
 // Código para a transição de telas
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
@@ -15,7 +13,6 @@ const main = document.getElementById('main');
       })
     
 
-
 // login de usuario
 document.querySelector("#botaologin").addEventListener("click", async (event) => {
     event.preventDefault() // impede o envio do formulário
@@ -27,14 +24,33 @@ document.querySelector("#botaologin").addEventListener("click", async (event) =>
     if (usuario != '' && senha != '') {
        
         try {
-            const response = await fetch(`http://localhost:3000/usuario/senha`);
-            if (response.status != 200) {
+            const response = await fetch(`http://localhost:3000/login`,{
+                method: "POST",
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    "usuario" : usuario,
+                    "senha" : senha
+                })
+            });
+            const data = await response.json();
 
-                // Redireciona para a página home
-                alert('Login realizado com sucesso!!')
-                  window.location.replace('../HTML/Quizzz.html')
+            if (response.status == 200) {
+
+                console.log(data)
+
+
+                  if (data.status === "adimim") {
+                    // Redireciona para a página do administrador
+                    alert('Bem-vindo, administrador!');
+                    window.location.replace('../HTML/Admin.html');
+                } else {
+                    // Redireciona para a página do aluno
+                    alert('Bem-vindo, aluno!');
+                    window.location.replace('../HTML/Quizzz.html');
+                }
             } 
-            
             else {
                 alert('Usuário ou senha incorretos!', 'danger');
             }
@@ -52,8 +68,8 @@ document.querySelector("#botaologin").addEventListener("click", async (event) =>
 document.querySelector("#cadastrar").addEventListener("click", async (event) => {
       event.preventDefault();
     
-      const usuario = document.querySelector("#usuario").value;
-      const senha = document.querySelector("#senha").value;
+      const usuario = document.querySelector("#usuario1").value;
+      const senha = document.querySelector("#senha1").value;
       const senhaConfirmacao= document.querySelector("#senhaConfirmacao").value;
     
       if (senha !== senhaConfirmacao) {
@@ -80,13 +96,12 @@ document.querySelector("#cadastrar").addEventListener("click", async (event) => 
               const data = await response.json();
               alert(data.error || "Erro ao realizar cadastro.", "danger");
           }
+           if(usuario == '' && senha == ''){
+            
+           }
       } 
       catch (error) {
   
           alert("Erro ao tentar cadastrar. Tente novamente mais tarde.", "danger");
       }
     });
-
- 
-
-
