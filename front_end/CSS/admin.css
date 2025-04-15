@@ -14,7 +14,7 @@ html {
 body {
   background: #f1f2f7;
   font-family: "Open Sans", arial, sans-serif;
-  color: #000000;
+  color: darkslategray;
 }
 
 body.login {
@@ -31,7 +31,7 @@ body.login {
 
 /* header */
 header[role="banner"] {
-  background: #0E6BA8;
+  background: white;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
 header[role="banner"] h1 {
@@ -43,7 +43,7 @@ header[role="banner"] h1:before {
   content: "\f248";
   font-family: FontAwesome;
   padding-right: 0.6em;
-  color: #fff;
+  color: red;
 }
 header[role="banner"] .utilities {
   width: 100%;
@@ -106,7 +106,7 @@ footer[role="contentinfo"] {
 /* typography */
 a {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
 }
 
 h2,
@@ -196,7 +196,23 @@ form input[type="submit"] {
   -ms-border-radius: 0.5em;
   border-radius: 0.5em;
 }
-
+form input[type="submit"]:hover {
+  background: turquoise;
+  border: none;
+  border-bottom: solid 4px #21ccbb;
+  padding: 0.7em 3em;
+  margin: 1em 0;
+  color: white;
+  text-shadow: 0 -1px 0 #21ccbb;
+  font-size: 1.1em;
+  font-weight: bold;
+  display: inline-block;
+  width: auto;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
 
 /* feedback */
 .error {
@@ -254,7 +270,7 @@ td {
     top: 0;
     right: 0;
     background: transparent;
-    color: #fff;
+    color: darkslategray;
     width: auto;
   }
   header[role="banner"] .utilities li {
@@ -334,12 +350,66 @@ td {
 
 #alter{
   max-width: 20px;
-  display: flex;
-  gap: 10px;
-
   
 }
 
-#painel{
-  color: #fff;
+
+/* Estilos do contêiner */
+/* Estilos do contêiner */
+#questionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0; /* Remove o padding lateral */
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+  margin-left: -1rem; /* Ajusta para puxar mais à esquerda */
+}
+
+
+/* Estilos dos cards */
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo do título */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Estilos das alternativas */
+.card-alternatives {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-alternatives li {
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  color: #555;
+}
+
+/* Estilo da resposta correta */
+.card-correct-answer {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007BFF;
+  margin-top: 1rem;
 }
