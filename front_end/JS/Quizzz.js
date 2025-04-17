@@ -60,10 +60,7 @@ function verificarResposta() {
 
     if (respostaSelecionada === respostaCorreta) {
         acertos++;
-    } else {
-        mensagem.innerHTML = `<span style="color: red;">Resposta incorreta. A correta era: ${respostaCorreta.toUpperCase()}</span>`;
-    }
-
+    } 
     return true;
 }
 
