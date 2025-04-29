@@ -10,7 +10,7 @@ routes.post('/login',async (req, res)=>{
     const { usuario, senha } = req.body
     try{
         
-        const consulta = await sql`select id, senha, status from usuarios
+        const consulta = await sql`select id, senha, status from usuarios_projeto
         where usuario = ${usuario}`
 
         if(consulta.length == 0){
@@ -43,7 +43,7 @@ routes.post('/usuario', async (req, res)=>{
 
         const hash = await Criarhash(senha, 10)
         
-        await sql`insert into usuarios(usuario, senha, status)
+        await sql`insert into usuarios_projeto(usuario, senha, status)
         values(${usuario},${hash},'aluno')`
 
         return res.status(201).json('ok')
@@ -66,7 +66,7 @@ routes.post('/Admin', async (req, res)=>{
 
         const hash = await Criarhash(senha, 10)
         
-        await sql`insert into usuarios(usuario, senha, status)
+        await sql`insert into usuarios_projeto(usuario, senha, status)
         values(${usuarioA},${hash},'adimim')`
 
         return res.status(201).json('ok')

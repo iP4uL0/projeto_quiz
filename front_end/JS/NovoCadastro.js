@@ -30,18 +30,19 @@ document.querySelector("#botaologin").addEventListener("click", async (event) =>
                     'Content-Type' : 'application/json'
                 },
                 body : JSON.stringify({
-                    "usuario" : usuario,
-                    "senha" : senha
+                    usuario : usuario,
+                    senha : senha
                 })
             });
             const data = await response.json();
 
             if (response.status == 200) {
 
-                console.log(data)
+                console.log(data.status)
 
 
                   if (data.status === "adimim") {
+                  
                     // Redireciona para a página do administrador
                     alert('Bem-vindo, administrador!');
                     window.location.replace('../HTML/Admin.html');
