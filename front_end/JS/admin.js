@@ -38,6 +38,7 @@ botao.addEventListener('click', async function(event){
   
   })
 
+
   async function loadQuestions() {
     const questionList = document.getElementById("questionList");
     questionList.innerHTML = ""; // Limpa a lista antes de carregar

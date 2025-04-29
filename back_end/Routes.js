@@ -97,7 +97,7 @@ routes.post('/Cperguntas', async (req, res)=>{
 
 
 //Busca perguntas
-routes.post('/Bperguntas',async (req, res)=>{
+routes.get('/Bperguntas',async (req, res)=>{
 
     try{
             const consulta = await sql`SELECT * FROM perguntas ORDER BY RANDOM() LIMIT 1`
