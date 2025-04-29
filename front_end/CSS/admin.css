@@ -26,7 +26,8 @@ body.login {
 }
 
 .warn {
-  color: red;
+  color: #A6E1FA;
+  font-size: 20px;
 }
 
 /* header */
@@ -43,7 +44,7 @@ header[role="banner"] h1:before {
   content: "\f248";
   font-family: FontAwesome;
   padding-right: 0.6em;
-  color: red;
+  color: #A6E1FA;
 }
 header[role="banner"] .utilities {
   width: 100%;
@@ -74,7 +75,7 @@ header[role="banner"] .utilities li a {
 }
 
 nav[role="navigation"] {
-  background: #2a3542;
+  background: #fff;
   color: #ddd;
   
 }
@@ -117,11 +118,11 @@ h4 {
 }
 
 h2 {
-  color: #ff1a1a;
+  color: #fff;
 }
 
 b {
-  color: lightsalmon;
+  color: #0E6BA8;
 }
 
 .hint {
@@ -180,13 +181,13 @@ form legend {
   margin: 1em 0 0.5em;
 }
 form input[type="submit"] {
-  background: #ff1a1a;
+  background: #0A2472;
   border: none;
-  border-bottom: solid 4px #e60000;
+  border-bottom: solid 4px #0A2472;
   padding: 0.7em 3em;
   margin: 1em 0;
   color: white;
-  text-shadow: 0 -1px 0 #e60000;
+  text-shadow: 0 -1px 0 #0A2472;
   font-size: 1.1em;
   font-weight: bold;
   display: inline-block;
@@ -197,13 +198,13 @@ form input[type="submit"] {
   border-radius: 0.5em;
 }
 form input[type="submit"]:hover {
-  background: turquoise;
+  background: #A6E1FA;
   border: none;
-  border-bottom: solid 4px #21ccbb;
+  border-bottom: solid 4px #A6E1FA;
   padding: 0.7em 3em;
   margin: 1em 0;
   color: white;
-  text-shadow: 0 -1px 0 #21ccbb;
+  text-shadow: 0 -1px 0 #A6E1FA;
   font-size: 1.1em;
   font-weight: bold;
   display: inline-block;
@@ -236,13 +237,13 @@ th {
   font-weight: 400;
   font-size: 13px;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(87, 84, 84, 0.1);
   padding: 0 10px;
   padding-bottom: 14px;
 }
 
 tr:not(:first-child):hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(99, 94, 94, 0.1);
 }
 
 td {
@@ -410,6 +411,6 @@ td {
 .card-correct-answer {
   font-size: 1rem;
   font-weight: bold;
-  color: #007BFF;
+  color: #A6E1FA;
   margin-top: 1rem;
 }
