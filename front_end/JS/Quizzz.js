@@ -10,7 +10,7 @@ const acertosSpan = document.querySelector("#acertos");
 let respostaCorreta = "";
 let acertos = 0;
 let contadorQuestoes = 0;
-const limiteQuestoes = 40;
+const limiteQuestoes = 10;
 
 async function loadQuestion() {
     if (contadorQuestoes >= limiteQuestoes) {
@@ -21,7 +21,7 @@ async function loadQuestion() {
 
     try {
         const resposta = await fetch("http://localhost:3000/Bperguntas", {
-            method: "POST",
+            
         });
 
         const questaoAtual = await resposta.json();
