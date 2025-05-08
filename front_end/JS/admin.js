@@ -96,7 +96,7 @@ botao.addEventListener('click', async function(event){
     correctAnswer.innerText = `Resposta correta: ${questao.correct_answer}`;
 
 
-    // Botão de deletar
+    //* Botão de deletar
   const deleteButton = document.createElement("button");
 deleteButton.innerText = "Excluir";
 deleteButton.classList.add("delete-button");
@@ -117,9 +117,38 @@ deleteButton.addEventListener("click", async () => {
   }
 });
 
+// 
+// !MODAL!
+
+const editbutton = document.createElement("button");
+editbutton.innerText = "Excluir";
+editbutton.classList.add("delete-button");
+editbutton.addEventListener("click", async () => {})
+  
+
+  try {
+    const response = await fetch(`http://localhost:3000/Delete/${questao.id}`,{
+      method: "PUT",})
+    
+
+const openButtons = document.querySelectorAll('.open-modal');
+openButtons.forEach((button) => { //pega qual dos botões foram selecionados da class .open-modal
+
+  button.addEventListener("click", () => { //arrow function pegar algo - no caso clique do botão
+    const modalId = button.getAttribute("data-modal"); //especificar qual ATRIBUTO - data-modal foi pego 
+    const modal = document.getElementById(modalId); //especificar qual elemento por ID foi pego 
+    modal.showModal(); //show ou showModal
+
+  });
+});
+  }
+
+catch{}
+
 // Monta o card
 card.append(questionTitle,  hiddenIdInput,  alternatives, correctAnswer, deleteButton);
 
     // Adiciona o card ao contêiner de perguntas
     questionList.appendChild(card);
+   
   }

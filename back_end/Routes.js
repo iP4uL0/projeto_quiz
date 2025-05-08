@@ -134,5 +134,31 @@ routes.delete('/Delete/:id', async (req, res)=>{
 })
 
 
+//Editar perguntas
+routes.put('/editar', async (req, res)=>{
+   
+    
+    try{
+        const {id, pergunta, a, b, c, d, dificuldade, correct_answer} = req.body
+        await sql`update perguntas set 
+        pergunta = ${pergunta}, 
+        a = ${a}, 
+        b = ${b}, 
+        c = ${c}, 
+        d = ${d}, 
+        dificuldade = ${dificuldade}, 
+        correct_answer = ${correct_answer}
+        where id = ${id};`
+  
+
+        return res.status(200).json('Ação efetuada')
+    }
+    catch(error){
+        console.log(error)
+        return res.status(500).json('Erro inesperado')
+        
+    }
+})
+
 
 export default routes
