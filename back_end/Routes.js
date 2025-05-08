@@ -33,8 +33,6 @@ routes.post('/login',async (req, res)=>{
     }
 })
 
-
-
 //cadastro de alunos
 routes.post('/usuario', async (req, res)=>{
     
@@ -54,8 +52,6 @@ routes.post('/usuario', async (req, res)=>{
 
     }
 })
-
-
 
 //cadastro de Adiministradores
 routes.post('/Admin', async (req, res)=>{
@@ -78,9 +74,6 @@ routes.post('/Admin', async (req, res)=>{
     }
 
 })
-
-
-
 
 //cadastro perguntas
 routes.post('/Cperguntas', async (req, res)=>{
