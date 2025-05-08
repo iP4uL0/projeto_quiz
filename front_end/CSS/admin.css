@@ -414,3 +414,23 @@ td {
   color: #A6E1FA;
   margin-top: 1rem;
 }
+
+
+.delete-button{
+
+  background: #0A2472;
+  border: none;
+  border-bottom: solid 4px #0A2472;
+  padding: 0.4em 3em;
+  margin: 1em 0;
+  color: white;
+  text-shadow: 0 -1px 0 #0A2472;
+  font-size: 1.1em;
+  font-weight: bold;
+  display: inline-block;
+  width: auto;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  border-radius: 0.5em;
+}

@@ -44,15 +44,15 @@ botao.addEventListener('click', async function(event){
     questionList.innerHTML = ""; // Limpa a lista antes de carregar
 
     try {
-        const response = await fetch("http://localhost:3000/Bperguntas");
+        const response = await fetch("http://localhost:3000/Aperguntas");
         const questions = await response.json();
 
-        console.log(questions); // Apenas para garantir que estamos recebendo as perguntas
+        // console.log(questions); // Apenas para garantir que estamos recebendo as perguntas
 
         // Adiciona cada pergunta à lista
         // questions.map((questao) => addQuestionToPage(questao));
         questions.forEach((questao, index) => {
-          console.log(`Processando pergunta ${index + 1}:`, questao); // Log para depuração
+          // console.log(`Processando pergunta ${index + 1}:`, questao); // Log para depuração
           addQuestionToPage(questao);
       });
     } catch (error) {
@@ -60,36 +60,66 @@ botao.addEventListener('click', async function(event){
     }
 }
 
-function addQuestionToPage(questao) {
-  const questionList = document.getElementById("questionList");
+   async function addQuestionToPage(questao) {
+    const questionList = document.getElementById("questionList");
 
-  // Cria o card
-  const card = document.createElement("div");
-  card.classList.add("card");
+    // Cria o card
+    const card = document.createElement("div");
+    card.inputMode =
+    card.classList.add("card");
 
-  // Título da pergunta
-  const questionTitle = document.createElement("h3");
-  questionTitle.classList.add("card-title");
-  questionTitle.innerText = `Pergunta: ${questao.pergunta}`;
 
-  // Alternativas
-  const alternatives = document.createElement("ul");
-  alternatives.classList.add("card-alternatives");
+    const hiddenIdInput = document.createElement("input");
+    hiddenIdInput.type = "hidden";
+    hiddenIdInput.value = questao.id;
+    hiddenIdInput.classList.add("question-id");
+  
 
-  ["a", "b", "c", "d"].forEach((key) => {
-    const alternative = document.createElement("li");
-    alternative.innerText = `${key.toUpperCase()}: ${questao[key]}`;
-    alternatives.appendChild(alternative);
-  });
+    // Título da pergunta
+    const questionTitle = document.createElement("h3");
+    questionTitle.classList.add("card-title");
+    questionTitle.innerText = `Pergunta: ${questao.pergunta}`;
 
-  // Resposta correta
-  const correctAnswer = document.createElement("p");
-  correctAnswer.classList.add("card-correct-answer");
-  correctAnswer.innerText = `Resposta correta: ${questao.correct_answer}`;
+    // Alternativas
+    const alternatives = document.createElement("ul");
+    alternatives.classList.add("card-alternatives");
 
-  // Monta o card
-  card.append(questionTitle, alternatives, correctAnswer);
+    ["a", "b", "c", "d"].forEach((key) => {
+      const alternative = document.createElement("li");
+      alternative.innerText = `${key.toUpperCase()}: ${questao[key]}`;
+      alternatives.appendChild(alternative);
+    });
 
-  // Adiciona o card ao contêiner de perguntas
-  questionList.appendChild(card);
-}
+    // Resposta correta
+    const correctAnswer = document.createElement("p");
+    correctAnswer.classList.add("card-correct-answer");
+    correctAnswer.innerText = `Resposta correta: ${questao.correct_answer}`;
+
+
+    // Botão de deletar
+  const deleteButton = document.createElement("button");
+deleteButton.innerText = "Excluir";
+deleteButton.classList.add("delete-button");
+deleteButton.addEventListener("click", async () => {
+  try {
+    const response = await fetch(`http://localhost:3000/Delete/${questao.id}`, {
+      method: "DELETE",
+  
+    });
+    if (response.ok) {
+      alert('Pergunta excluida')
+      card.remove(); // Remove o card da tela
+    } else {
+      alert("Erro ao deletar a pergunta.");
+    }
+  } catch (error) {
+    console.error("Erro na exclusão:", error);
+  }
+});
+
+// Monta o card
+card.append(questionTitle,  hiddenIdInput,  alternatives, correctAnswer, deleteButton);
+
+    // Adiciona o card ao contêiner de perguntas
+    questionList.appendChild(card);
+  }

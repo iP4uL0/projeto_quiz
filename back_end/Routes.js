@@ -104,11 +104,26 @@ routes.get('/Bperguntas',async (req, res)=>{
 });
 
 
-//Deletar pergunta
-routes.delete('/Delete/:pergunta', async (req, res)=>{
+routes.get('/Aperguntas',async (req, res)=>{
+
 
     try{
-        const id = req.params
+            const consulta = await sql`SELECT * FROM perguntas`
+            return res.status(200).json(consulta)
+    }
+    catch(error){
+        console.log(error)
+        return res.status(500).json('Ocorreu um erro inesperado')
+    }
+    
+});
+
+
+//Deletar pergunta
+routes.delete('/Delete/:id', async (req, res)=>{
+
+    try{
+        const {id } = req.params
         await sql`DELETE FROM perguntas WHERE id = ${id};`
         return res.status(200).json('Pergunta deletada')
     }
