@@ -73,3 +73,8 @@ body.dark-mode .sign-up form {
   background: #333; /* Fundo escuro */
   color: #f5f5f5; /* Texto claro */
 }
+
+.dark-mode p h1{
+  color:#fff;
+}
+
